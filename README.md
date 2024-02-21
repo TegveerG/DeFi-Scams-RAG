@@ -16,8 +16,7 @@ The project's front-end is built using Streamlit, a popular Python library for b
 
 - **Streamlit Web App**: The project is built using Streamlit, providing an intuitive and interactive web interface for users.
 - **Input Fields**: Users can input essential credentials like OpenAI API key and Pinecone API key through dedicated input fields.
-- **Document Uploader**: Users can upload multiple PDF files, which are then processed for further analysis.
-- **Document Splitting**: The uploaded PDFs are split into smaller text chunks, ensuring compatibility with models with token limits.
+- **Text Splitting**: The uploaded PDFs are split into smaller text chunks, ensuring compatibility with models with token limits.
 - **Vector Embeddings**: The text chunks are converted into vector embeddings, making it easier to perform retrieval and question-answering tasks.
 - **Flexible Vector Storage**: You can choose to store vector embeddings either in Pinecone or a local vector store, providing flexibility and control.
 - **Interactive Conversations**: Users can engage in interactive conversations with the documents, asking questions and receiving answers. The chat history is preserved for reference.
@@ -31,14 +30,14 @@ Before running the project, make sure you have the following prerequisites:
 - Streamlit
 - Pinecone
 - An OpenAI API key
-- PDF documents to upload
 
 ## Usage
 
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/mirabdullahyaser/Retrieval-Augmented-Generation-Engine-with-LangChain-and-Streamlit.git
+   git clone https://github.com/TegveerG/DeFi-Scams-RAG.git
+
    cd Retrieval-Augmented-Generation-Engine-with-LangChain-and-Streamlit
    ```
 
@@ -51,28 +50,28 @@ Before running the project, make sure you have the following prerequisites:
 3. Run the Streamlit app:
 
    ```bash
-   streamlit run src/rag_engine.py
+   streamlit run src/app.py
    ```
 
 4. Access the app by opening a web browser and navigating to the provided URL.
 
 5. Input your OpenAI API key, Pinecone API key, Pinecone environment, and Pinecone index name in the respective fields. You can provide them either in the sidebar of the application or place them in the **secrets.toml** file in the [.streamlit directory](src/.streamlit)
 
-6. Upload the PDF documents you want to analyze.
+6. Ask the chatbot about DeFi scams.
 
-7. Click the "Submit Documents" button to process the documents and generate vector embeddings.
+7. Click the "Submit Query" button to process the documents and generate vector embeddings.
 
-8. Engage in interactive conversations with the documents by typing your questions in the chat input box.
+8. Engage in interactive conversations with the text by typing your questions in the chat input box.
 
 ## Contributors
 
-[Mir Abdullah Yaser](https://github.com/mirabdullahyaser)
+[Tegveer Ghura](https://github.com/TegveerG)
 
 ## Contact
 
 If you have any questions, suggestions, or would like to discuss this project further, feel free to get in touch with me:
 
-- [Email](mailto:mirabdullahyaser@gmail.com)
-- [LinkedIn](https://www.linkedin.com/in/mir-abdullah-yaser/)
+- [Email](mailto:tegu99@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/tegveerg/)
 
 I'm open to collaboration and would be happy to connect!
