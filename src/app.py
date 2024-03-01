@@ -99,7 +99,7 @@ def main():
 
   user_question = st.text_input("Ask a question:")
   if user_question:
-    response = document_qa.run(user_question)
+    response = document_qa.invoke(user_question)
 
     # Display the response
     st.write("Answer:")
