@@ -1,3 +1,4 @@
+### This script is not compatible with the current version of the API. It is kept here for reference purposes only.
 import requests
 from bs4 import BeautifulSoup
 import json
