@@ -90,8 +90,8 @@ def scrape_data():
 def main():
     df = scrape_data()
     if df is not None:
-        os.makedirs('../data', exist_ok=True)
-        df.to_csv('../data/slowmist.csv', index=False)
+        os.makedirs('./data', exist_ok=True)
+        df.to_csv('./data/slowmist.csv', index=False)
 
 if __name__ == "__main__":
     main()

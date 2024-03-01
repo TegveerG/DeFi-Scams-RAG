@@ -1,7 +1,10 @@
-langchain==0.1.8
-streamlit==1.31.0
-chromadb==0.4.22
-sentence-transformers==2.3.1
+python-dotenv
+openai
+tqdm
+pinecone-client
+pinecone-datasets
+pinecone-text
+gradio==3.0
 requests
 BeautifulSoup4
 pandas
