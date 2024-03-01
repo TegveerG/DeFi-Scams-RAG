@@ -38,7 +38,7 @@ Before running the project, make sure you have the following prerequisites:
    ```bash
    git clone https://github.com/TegveerG/DeFi-Scams-RAG.git
 
-   cd Retrieval-Augmented-Generation-Engine-with-LangChain-and-Streamlit
+   cd DeFi-Scams-RAG
    ```
 
 2. Install the required dependencies by running:

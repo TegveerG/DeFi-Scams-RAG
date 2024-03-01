@@ -14,8 +14,8 @@ import pandas as pd
 
 def preprocess_and_concat():
     # Read data
-    slowmist_df = pd.read_csv('../data/slowmist.csv')
-    defiyield_df = pd.read_csv('../data/defiyield.csv')
+    slowmist_df = pd.read_csv('./data/slowmist.csv')
+    defiyield_df = pd.read_csv('./data/defiyield.csv')
 
     # Convert the date columns to datetime
     slowmist_df['Date'] = pd.to_datetime(slowmist_df['Date'])
@@ -35,16 +35,16 @@ def preprocess_and_concat():
 
     # Keep relevant columns
     slowmist_df = slowmist_df[['Document', 'Hacked_Target', 'Funds_Lost', 'Attack_Method', 'Source']]
-    defiyield_df = defiyield_df[['Document', 'project_name', 'funds_lost', 'scam_type', 'source']]
+    defiyield_df = defiyield_df[['Document', 'project_name', 'funds_lost', 'scam_type', 'proof_link']]
 
     # Rename columns
-    defiyield_df.rename(columns={'project_name': 'Hacked_Target', 'funds_lost': 'Funds_Lost', 'scam_type': 'Attack_Method', 'source': 'Source'}, inplace=True)
+    defiyield_df.rename(columns={'project_name': 'Hacked_Target', 'funds_lost': 'Funds_Lost', 'scam_type': 'Attack_Method', 'proof_link': 'Source'}, inplace=True)
 
     # Concatenate the two dataframes
     df = pd.concat([slowmist_df, defiyield_df], ignore_index=True)
 
     # Output the dataframe
-    df.to_csv('../data/RAG_scams.csv', index=False)
+    df.to_csv('./data/RAG_scams.csv', index=False)
 
 def main():
   # Load the environment variables
@@ -54,7 +54,7 @@ def main():
   preprocess_and_concat()
 
   # Read the concatenated data
-  df = pd.read_csv('../data/RAG_scams.csv')
+  df = pd.read_csv('./data/RAG_scams.csv')
 
   # Init langchain components
   DOCUMENT = 'Document'
@@ -81,11 +81,10 @@ def main():
     model_id=model_id,
     task=task,
     model_kwargs={
-        "temperature": 0,
-        "max_length": 256
+        "max_length": 1024
     },
     pipeline_kwargs={
-        "repetition_penalty":1.1
+        "repetition_penalty": 1.1
     }
   )
 
