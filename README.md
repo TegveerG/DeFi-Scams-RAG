@@ -1,6 +1,6 @@
 # Retrieval Augmented Generation Engine using LangChain, Streamlit, & Pinecone
 
-![](demo.gif)
+[DEMO LINK!](https://youtu.be/pt200tFT85A)
 
 ## Overview
 
