@@ -31,7 +31,11 @@ def get_pinecone_index(index_name):
             name=index_name,
             dimension=1536,
             metric='cosine',
-            spec=ServerlessSpec(cloud='aws', region='us-west-2'))
+            spec=ServerlessSpec(
+                cloud='aws',
+                region='us-west-2'
+            )
+        )
 
         print(f"Index {index_name} created.")
 
@@ -52,10 +56,8 @@ def upsert_data(index, df):
         if len(prepped) >= 200: # batching upserts
             index.upsert(prepped)
             prepped = []
-
-    # Upsert any remaining entries after the loop
-    if len(prepped) > 0:
-        index.upsert(prepped)
+    # if len(prepped) > 0:
+    #     index.upsert(prepped)
 
     print("Done: Data upserted to Pinecone index")
     return index

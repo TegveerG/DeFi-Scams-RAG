@@ -1,8 +1,6 @@
 # Retrieval Augmented Generation Engine using LangChain, Streamlit, & Pinecone
 
-[Access application on Streamlit Cloud Platform](https://)
-
-![Demo](misc/demo.gif)
+![](demo.gif)
 
 ## Overview
 
@@ -10,7 +8,7 @@ The Retrieval Augmented Engine (RAG) is a powerful tool for document retrieval, 
 
 Two open-source databases, including [DEFIYIELD](https://de.fi/rekt-database) and [SlowMist](https://hacked.slowmist.io/), are used to train the chatbot. Specifically, one of the scraped fields that describes the summary of an attack is used to generate vector embeddings for the documents. The vector embeddings are then stored in Pinecone, a vector database, for efficient retrieval and question-answering tasks.
 
-The project's front-end is built using Streamlit, a popular Python library for building web applications.
+The project's front-end is built using Gradio, an upcoming Python library for building web applications.
 
 ## Features
 
@@ -23,45 +21,64 @@ The project's front-end is built using Streamlit, a popular Python library for b
 
 ## Prerequisites
 
-Before running the project, make sure you have the following prerequisites:
+- Python 3.9.6
+- Virtual environment (recommended)
+- Visual Studio Code (recommended for environment setup)
 
-- Python 3.7+
-- LangChain
-- Streamlit
-- Pinecone
-- An OpenAI API key
+## Setup Instructions
 
-## Usage
+### 1. Clone the Repository
 
-1. Clone the repository to your local machine:
+Start by cloning this repository to your local machine.
 
-   ```bash
-   git clone https://github.com/TegveerG/DeFi-Scams-RAG.git
+### 2. Create a Python Virtual Environment
 
-   cd DeFi-Scams-RAG
-   ```
+It is recommended to run the project within a Python virtual environment to manage dependencies effectively.
 
-2. Install the required dependencies by running:
+- **Using Visual Studio Code**: Click on `View`, then Click on `Command Palette`, search for `Python: Create Environment`, or use the shortcut `Command+Shift+P` and search for the same option.
+- **Using Terminal**:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-3. Run the Streamlit app:
+### 3. Install Dependencies
 
-   ```bash
-   streamlit run src/app.py
-   ```
+After activating the virtual environment, install the required dependencies.
 
-4. Access the app by opening a web browser and navigating to the provided URL.
+```bash
+pip install -r requirements.txt
+```
 
-5. Input your OpenAI API key, Pinecone API key, Pinecone environment, and Pinecone index name in the respective fields. You can provide them either in the sidebar of the application or place them in the **secrets.toml** file in the [.streamlit directory](src/.streamlit)
+### 4. Environment Variables
 
-6. Ask the chatbot about DeFi scams.
+Create a `.env` file in the root directory of the project to store your API keys and other configurations.
 
-7. Click the "Submit Query" button to process the documents and generate vector embeddings.
+```plaintext
+OPENAI_API_KEY=<your_openai_api_key>
+PINECONE_API_KEY=<your_pinecone_api_key>
+```
 
-8. Engage in interactive conversations with the text by typing your questions in the chat input box.
+## Running the Applications
+
+### Import Data from Confluence
+
+To import your data from Confluence, run the following command:
+Review the main function of the application to understand the flow of the application.
+
+```bash
+python slowmist.py
+```
+
+### Run Pinecone and OpenAI Application
+
+To execute the Pinecone and OpenAI integration:
+Review the main function of the application to understand the flow of the application.
+
+```bash
+python app.py
+```
 
 ## Contributors
 

@@ -42,7 +42,7 @@ def main(query):
 
   model_for_openai_embedding="text-embedding-3-small"
   model_for_openai_chat="gpt-3.5-turbo-0125"
-  index_name = "defi-scams-rag"
+  index_name = "defi-scams-rag" # new index for new run of the data
   # query = "This is where I put a question if I'm Testing?"
 
   ######## delete_pinecone_index(index_name)  # uncomment to delete index
@@ -68,7 +68,7 @@ def main(query):
   extracted_info = extract_info(res)
   validated_info = []
   for info in extracted_info:
-      source, score = info
+      source, chain, attack, funds = info
       validated_info.append(f"Source: {source}   Chain: {chain}   Attack: {attack}   Funds Lost: {funds}")
 
   validated_info_str = "\n".join(validated_info)
