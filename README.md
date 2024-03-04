@@ -4,18 +4,16 @@
 
 ## Overview
 
-The Retrieval Augmented Engine (RAG) is a powerful tool for document retrieval, summarization, and interactive question-answering. This project utilizes LangChain, Streamlit, and Pinecone to provide a seamless web application for chatting with a chatbot about DeFi (Decentralized Finance) scams.
+The Retrieval Augmented Engine (RAG) is a powerful tool for document retrieval, summarization, and interactive question-answering. This project utilizes Gradio for front-end, OpenAI API to create embeddings and obtain chat completion response, Pinecone to store embeddings, and BeautifulSoup along with Pandas to scrape and preprocess data. The aim of this project is to provide a seamless web application for chatting with a chatbot about DeFi (Decentralized Finance) scams, ultimately aiming to educate them about the prevalent threats within the DeFi space.
 
 Two open-source databases, including [DEFIYIELD](https://de.fi/rekt-database) and [SlowMist](https://hacked.slowmist.io/), are used to train the chatbot. Specifically, one of the scraped fields that describes the summary of an attack is used to generate vector embeddings for the documents. The vector embeddings are then stored in Pinecone, a vector database, for efficient retrieval and question-answering tasks.
-
-The project's front-end is built using Gradio, an upcoming Python library for building web applications.
 
 ## Features
 
 - **Gradio Web App**: The front-end is built using Gradio, providing a seamless and interactive user experience with a chatbot.
 - **Text Splitting**: The combined scam database is split into smaller text chunks, ensuring compatibility with models with token limits.
 - **Vector Embeddings**: The text chunks are converted into vector embeddings, making it easier to perform retrieval and question-answering tasks.
-- **Flexible Vector Storage**: You can choose to store vector embeddings either in Pinecone or a local vector store, providing flexibility and control. Chroma DB was used before Pinecone integration in an attempt to store vector embeddings locally; however, Pinecone was chosen for its scalability and retrieval efficiency.
+- **Flexible Vector Storage**: You can choose to store vector embeddings either in Pinecone or a local vector store, providing flexibility and control. Chroma DB was used before Pinecone integration in an attempt to store vector embeddings locally; however, Pinecone was chosen for its scalability and retrieval efficiency. Note: you may have to activate a free trial ($100 credit) to upsert data to your Pinecone account.
 - **Interactive Conversations**: Users can engage in interactive conversations with the database, asking questions and receiving answers. The chat history is preserved for reference.
 
 ## Prerequisites
