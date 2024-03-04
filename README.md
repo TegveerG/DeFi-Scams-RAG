@@ -1,4 +1,4 @@
-# Retrieval Augmented Generation Engine using LangChain, Streamlit, & Pinecone
+# Retrieval Augmented Generation Engine using OpenAI API, Gradio, & Pinecone
 
 [DEMO LINK!](https://youtu.be/pt200tFT85A)
 
@@ -12,12 +12,11 @@ The project's front-end is built using Gradio, an upcoming Python library for bu
 
 ## Features
 
-- **Streamlit Web App**: The project is built using Streamlit, providing an intuitive and interactive web interface for users.
-- **Input Fields**: Users can input essential credentials like OpenAI API key and Pinecone API key through dedicated input fields.
-- **Text Splitting**: The uploaded PDFs are split into smaller text chunks, ensuring compatibility with models with token limits.
+- **Gradio Web App**: The front-end is built using Gradio, providing a seamless and interactive user experience with a chatbot.
+- **Text Splitting**: The combined scam database is split into smaller text chunks, ensuring compatibility with models with token limits.
 - **Vector Embeddings**: The text chunks are converted into vector embeddings, making it easier to perform retrieval and question-answering tasks.
-- **Flexible Vector Storage**: You can choose to store vector embeddings either in Pinecone or a local vector store, providing flexibility and control.
-- **Interactive Conversations**: Users can engage in interactive conversations with the documents, asking questions and receiving answers. The chat history is preserved for reference.
+- **Flexible Vector Storage**: You can choose to store vector embeddings either in Pinecone or a local vector store, providing flexibility and control. Chroma DB was used before Pinecone integration in an attempt to store vector embeddings locally; however, Pinecone was chosen for its scalability and retrieval efficiency.
+- **Interactive Conversations**: Users can engage in interactive conversations with the database, asking questions and receiving answers. The chat history is preserved for reference.
 
 ## Prerequisites
 
@@ -62,10 +61,10 @@ PINECONE_API_KEY=<your_pinecone_api_key>
 
 ## Running the Applications
 
-### Import Data from Confluence
+### Scrape Data from SlowMist Hacked Database
 
-To import your data from Confluence, run the following command:
-Review the main function of the application to understand the flow of the application.
+To scrape and save data as `CSV` locally, run the following command:
+Review the `main` function of the application to understand the flow of the application.
 
 ```bash
 python slowmist.py
