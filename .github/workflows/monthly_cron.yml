@@ -8,18 +8,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-scripts:
+  run-python-script:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.9'
-      - name: Run slowmist.py
-        run: python slowmist.py
-      - name: Run app.py
-        run: python app.py
-        env:
-            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-            PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9.6
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run slowmist.py
+      run: python slowmist.py
+
+    - name: Run app.py
+      run: python app.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
