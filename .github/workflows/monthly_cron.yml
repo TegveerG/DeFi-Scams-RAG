@@ -2,7 +2,7 @@ name: Monthly App Run
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs at midnight on the 1st of every month (change cron expression for different schedules)
+    - cron: "0 0 * * *"  # Runs at midnight on the 1st of every month (UTC)
 
 jobs:
   run-scripts:
@@ -12,7 +12,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.x'  # Change '3.x' to your specific Python version if needed
+          python-version: '3.9'
       - name: Run slowmist.py
         run: python slowmist.py
       - name: Run app.py
