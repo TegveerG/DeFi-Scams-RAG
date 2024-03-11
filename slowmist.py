@@ -62,7 +62,7 @@ def scrape_data():
         if records:
             attacks = records.find_all('li')
             for attack in attacks:
-                time = attack.find('span', class_='time').text.strip()
+                attack_time = attack.find('span', class_='time').text.strip()
                 hacked_target = attack.find('h3').text.strip().replace("Hacked target: ", "")
                 description = attack.find('p').text.strip().replace("Description of the event: ", "")
                 funds_lost = re.sub(r'[^\d-]+', '', attack.find('em').find_next('span').text.strip())
@@ -70,7 +70,7 @@ def scrape_data():
                 source = attack.find('a', text='View Reference Sources')
                 source = source['href'] if source else ''
 
-                time_list.append(time)
+                time_list.append(attack_time)
                 hacked_target_list.append(hacked_target)
                 description_list.append(description)
                 funds_lost_list.append(funds_lost)
