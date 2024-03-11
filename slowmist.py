@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import os
+import time
 
 def get_last_page_number():
     base_url = "https://hacked.slowmist.io"
@@ -52,6 +53,7 @@ def scrape_data():
 
     for page in range(1, num_pages+1):
         url = base_url + str(page)
+        time.sleep(0.1)
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
 
