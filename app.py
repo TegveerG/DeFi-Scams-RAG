@@ -54,38 +54,39 @@ def main(query):
     df = generate_embeddings_and_add_to_df(df, model_for_openai_embedding)
     upsert_data(index, df)
 
-  embed = get_embeddings(query, model_for_openai_embedding)
-  res = index.query(vector=embed.data[0].embedding, top_k=3, include_metadata=True)
+  return None # for github actions testing
+#   embed = get_embeddings(query, model_for_openai_embedding)
+#   res = index.query(vector=embed.data[0].embedding, top_k=3, include_metadata=True)
 
-  # create system prompt and user prompt for openai chat completion
-  messages = []
-  system_prompt = create_system_prompt()
-  prompt = create_prompt(query, res)
-  messages = add_prompt_messages("system", system_prompt , messages)
-  messages = add_prompt_messages("user", prompt , messages)
-  response = get_chat_completion_messages(messages, model_for_openai_chat)
-  print('-' * 80)
-  extracted_info = extract_info(res)
-  validated_info = []
-  for info in extracted_info:
-      source, chain, attack, funds = info
-      validated_info.append(f"Source: {source}   Chain: {chain}   Attack: {attack}   Funds Lost: {funds}")
+#   # create system prompt and user prompt for openai chat completion
+#   messages = []
+#   system_prompt = create_system_prompt()
+#   prompt = create_prompt(query, res)
+#   messages = add_prompt_messages("system", system_prompt , messages)
+#   messages = add_prompt_messages("user", prompt , messages)
+#   response = get_chat_completion_messages(messages, model_for_openai_chat)
+#   print('-' * 80)
+#   extracted_info = extract_info(res)
+#   validated_info = []
+#   for info in extracted_info:
+#       source, chain, attack, funds = info
+#       validated_info.append(f"Source: {source}   Chain: {chain}   Attack: {attack}   Funds Lost: {funds}")
 
-  validated_info_str = "\n".join(validated_info)
-  final_output = response + "\n\n" + validated_info_str
-  print(final_output)
-  print('-' * 80)
-  return final_output
+#   validated_info_str = "\n".join(validated_info)
+#   final_output = response + "\n\n" + validated_info_str
+#   print(final_output)
+#   print('-' * 80)
+#   return final_output
 
-# if __name__ == "__main__":
-#     main()
+# # if __name__ == "__main__":
+# #     main()
 
-#create Gradio interface for the chatbot
-gr.close_all()
-demo = gr.Interface(fn=main,
-                    inputs=[gr.Textbox(label="Hello, my name is Teg, your crypto scams specialist, how may I help?", lines=1,placeholder=""),],
-                    outputs=[gr.Textbox(label="response", lines=30)],
-                    title="DeFi Scams RAG Chatbot",
-                    description="A question and answering chatbot with knowledge from Slowmist's Hacked Database and DEFIYIELD's REKT Database. Ask me anything about crypto scams!",
-                    allow_flagging="never")
-demo.launch(server_name="localhost", server_port=8888)
+# #create Gradio interface for the chatbot
+# gr.close_all()
+# demo = gr.Interface(fn=main,
+#                     inputs=[gr.Textbox(label="Hello, my name is Teg, your crypto scams specialist, how may I help?", lines=1,placeholder=""),],
+#                     outputs=[gr.Textbox(label="response", lines=30)],
+#                     title="DeFi Scams RAG Chatbot",
+#                     description="A question and answering chatbot with knowledge from Slowmist's Hacked Database and DEFIYIELD's REKT Database. Ask me anything about crypto scams!",
+#                     allow_flagging="never")
+# demo.launch(server_name="localhost", server_port=8888)
