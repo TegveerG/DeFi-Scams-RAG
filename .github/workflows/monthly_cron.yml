@@ -1,0 +1,19 @@
+name: Monthly App Run
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs at midnight on the 1st of every month (change cron expression for different schedules)
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'  # Change '3.x' to your specific Python version if needed
+      - name: Run slowmist.py
+        run: python slowmist.py
+      - name: Run app.py
+        run: python app.py
