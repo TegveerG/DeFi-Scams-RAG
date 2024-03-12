@@ -18,7 +18,7 @@ Two open-source databases, including [DEFIYIELD](https://de.fi/rekt-database) an
 
 ## Prerequisites
 
-- Python 3.9.6
+- Python 3.10.6
 - Virtual environment (recommended)
 - Visual Studio Code (recommended for environment setup)
 
