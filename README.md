@@ -2,7 +2,7 @@
 
 [DEMO LINK!](https://youtu.be/pt200tFT85A)
 
-![](RAG Diagram.png)
+![RAG Image](RAG Diagram.png)
 
 ## Overview
 
