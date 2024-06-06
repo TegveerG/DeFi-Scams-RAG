@@ -2,6 +2,8 @@
 
 [DEMO LINK!](https://youtu.be/pt200tFT85A)
 
+[](RAG Diagram.png)
+
 ## Overview
 
 The Retrieval Augmented Engine (RAG) is a powerful tool for document retrieval, summarization, and interactive question-answering. This project utilizes Gradio for front-end, OpenAI API to create embeddings and obtain chat completion response, Pinecone to store embeddings, and BeautifulSoup along with Pandas to scrape and preprocess data. The aim of this project is to provide a seamless web application for chatting with a chatbot about DeFi (Decentralized Finance) scams, ultimately aiming to educate them about the prevalent threats within the DeFi space.
